@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Docs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+</head>
+
+<body>
+  <h1>Add new text context</h1>
+
+  <form hx-post="/uploadText" hx-trigger="submit" hx-ext='json-enc'>
+    <textarea name="text" required="true" placeholder="Add text for context"></textarea>
+    <button type="submit" hx-indicator>
+      <span>Submit</span>
+      <span class="htmx-indicator spinner"></span>
+    </button>
+  </form>
+
+  <style>
+    .htmx-indicator {
+      display: none;
+    }
+    .htmx-request .htmx-indicator {
+      display: inline-block;
+    }
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 2px solid #007bff;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <div>
+    <small>
+      <a href="/">Go back to the query UI</a>
+    </small>
+
+  </div>
+</body>
+
+</html>

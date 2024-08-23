@@ -15,5 +15,12 @@
     "typescript": "^5.5.2",
     "vitest": "1.5.0",
     "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "@cloudflare/ai": "^1.2.2",
+    "cheerio": "^1.0.0",
+    "hono": "^4.5.8",
+    "langchain": "^0.2.17",
+    "unpdf": "^0.11.0"
   }
 }

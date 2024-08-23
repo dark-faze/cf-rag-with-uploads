@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chat with Docs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+</head>
+
+<body>
+  <h1>Search your docs</h1>
+
+  <form hx-get="/query" hx-trigger="submit" hx-target="#result">
+    <textarea name="text" required="true" placeholder="Ask the AI anything"></textarea>
+    <button type="submit" hx-indicator>
+      <span>Submit</span>
+      <span class="htmx-indicator spinner"></span>
+    </button>
+  </form>
+  
+  <div id="result"></div>
+  
+  <style>
+    .htmx-indicator {
+      display: none;
+    }
+    .htmx-request .htmx-indicator {
+      display: inline-block;
+    }
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 2px solid #007bff;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  
+<div>
+  <small>
+    <a href="/addFromText"> Add more text </a>
+  </small>
+
+</div>
+
+  <p id="result"></p>
+</body>
+
+</html>
